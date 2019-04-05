@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<title>ТЕСТОВАЯ СТРАНИЦА!!!</title>
+
+	<script type="text/javascript" src="C:\JS\MyKod.js">
+
+	</script>
+
+	<style type="text/css">
+	/* Стиль таблицы #mytable*/
+		#mytable{
+			padding: 2px;
+			border-style: solid;
+			border-width: 3px;
+			border-color: silver;
+			border-spacing: 0px;
+		}
+		/* Стиль ячейки таблицы #mytable*/
+		#mytable td{
+			padding: 0px 2px;
+		}
+		/* Стиль графич области для вывода отдельного фрагмента изобр-я*/
+		#output{
+			border-style: solid;
+			border-color: silver;
+			border-width: 3px;
+			padding: 2px;
+		}
+	</style>
+
+</head>
+<body>
+
+	<!--Внешняя таблица-->
+	<table>
+		<!--Строка внешней таблицы-->
+		<tr>
+			<!--Первая ячейка в строке внешней таблицы-->
+			<td style="vertical-align: top;">
+				<!--Внешняя таблица mytable-->
+				<table id="mytable"></table>
+			</td>
+			<!--Вторая ячейка в строке внешней таблицы-->
+			<td style="vertical-align: top;">
+				<!--графич область для отображения фрагмента исх изобр-->
+				<canvas id="output"></canvas>
+			</td>
+		</tr>
+	</table>
+
+
+</body>
+</html>

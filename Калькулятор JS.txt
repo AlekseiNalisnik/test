@@ -1,0 +1,103 @@
+var output // ссылка на текстовое поле
+var operand,operator // запись первого операнда и символа оператора
+var numState,pntState // идентификация режима ввода числа и десятичной точки
+var ops=["+","-","*","/","="] // символы операторов
+var btn // кнопка сброса
+function btnPress(k){ // вызывается при щелчке на кнопке с цифрой
+	if(numState){
+		output.value=k // знач в текст поле
+		numState=false // значение переменной, опред режим ввода числа
+	}
+	else{  // Если при вводе числа цифры уже вводились
+		if(output.value=="0"){ // Если в текстовом поле нулевое знач-е
+			output.value=k
+		}
+		else{ // если в текстовом поле уже есть цифры
+			output.value+=k
+		}
+	}
+}
+window.onload=function(){ // обработка события, связанного с обработкой док-та
+	btn=document.getElementById("btnC") // ссылка на кнопку сброса
+	output=document.getElementById("myoutput") // ссылка на текстовое поле
+	output.disabled=true // текстовое поле заблокированно
+	btn.onclick=function(){ // обработчик события, связанного с щелчком по кнопке сброса
+		output.value="0" // обнуление знач-я в текством поле
+		pntState=true // значение перем, определяющей режим вводя десятичной точки
+		numState=true // значение перем, определяющей режим ввода числа
+		operator="" // начальное знач-е перем, определяющей операцию
+		operand="" // начальное знач для первого операнда
+	}
+	document.getElementById("btnDot").onclick=function(){ // обработчик события, связанного со щелчком на кнопке вводя десятичной точки
+		if(pntState){ // Если разрешён ввода десятичной точки
+			if(numState){ // если при вводе числа цифры ещё не вводились
+			output.value="0." // точка добавляется вместе с нулём
+			numState=false // изменение знач-я переменной, определяющей режим ввода чисел
+		}
+		else{ // Если при вводе числа цифры уже вводились
+				output.value+="."
+			}
+			pntState=false // новое знач для переменной, опред режим ввода точки(запред на её ввод)
+		}
+	}
+	for(var k=0;k<=9;k++){ // обработчик событий со щелчком по цифрам
+		document.getElementById("btn"+k).onclick=function(){
+			btnPress(this.value)
+		}
+	}
+	for(var p=0;p<ops.length;p++){ // обработчик для кнопок ввода символов оператора
+		document.getElementById("btn"+ops[p]).onclick=function(){
+			if(operand!=""&&operand!="Ошибка!"){ // Если первый операнд существует
+				var res=eval(operand+operator+output.value) // результат вычисления выражения
+				if(res=="Infinity"||res=="-Infinity"||isNaN(res)){ // если произошла ошибка
+					operator=""
+					operand=""
+					output.value="Ошибка!"
+				}
+				else{ // Если ошибки нет
+					output.value=res // отображение результата выч-я
+					if(this.value=="="){
+						operand=""
+					}
+					else{
+						operand=res
+						operator=this.value
+					}
+				}
+			}
+			else{ // Если первый операнд не существует или Ошибка
+				if(this.value!="="){ // Если была нажата не кнопка для ввода оператора равенства
+					operator=this.value
+					operand=output.value // содержимое текстового поля - значение первого операнда
+				}
+			}
+			numState=true // режим ввода нового числа
+			pntState=true // разрешено введение десятичной точки
+		}
+	}
+	document.getElementById("mycalc").onkeypress=function(evt){ // обработка события формы, связанного с нажатием клавиши ввода символа
+		var k
+		var nums=new Array(10)
+		for(k=0;k<nums.length;k++){
+			nums[k]=""+k
+		}
+		var symb=String.fromCharCode(evt.which) // определение символа по коду нажатой клавиши
+		if(symb in nums){ // Если нажата клавиша с цифрой
+			btnPress(symb)
+		}
+		else{ 
+			if(symb=="."){
+				document.getElementById("btnDot").click() // программный щелчок по кнопке ввода точки
+			}
+			else{
+				for(k=0;k<ops.length;k++){ // перебор символов оператора
+					if(symb==ops[k]){
+						document.getElementById("btn"+symb).click() // // программный щелчок по кнопке ввода cоотв оператора
+						return
+					}
+				}
+			}
+		}
+	} // завершение обработчика с нажатием кнопки
+	btn.click() // программный щелчок по кнопке сброса
+}

@@ -1,0 +1,41 @@
+body{
+	background: rgba(12, 55, 120, 0.5);
+	padding: 0 20px 20px 20px;
+	margin: 20px;
+	max-width: 755px;
+}
+p{
+	color: rgb(255, 255, 255);
+	font-size: 18px;
+	font-family: "Times New Roman"
+}
+h1,h2,h3{
+	color: rgb(255,255,255);
+	font-family: Arial;
+	border-bottom: 2px solid rgb(10 122 130);
+	padding-bottom: 2px;
+}
+h1{
+	font-size: 2em;
+}
+#logo{
+	font-family: Baskerville, Palatino, sans-serif;
+	font-size: 2.1em;
+	color: rgba(255,255,255,0.8);
+	font-style: italic;
+	text-align: justify;
+	margin-bottom: 26px;
+	background: rgb(190,180,110);
+	border-radius: 0 0 10px 10px;
+	padding: 12px;
+}
+.note{
+	color: #000000;
+	border: 2px solid #fff;
+	background: rgb(50, 180, 102);
+	margin-top: 15px;
+	padding: 10px;
+	margin-right: : 20px;
+	padding-right: 20px;
+	margin-bottom: 25px;
+}

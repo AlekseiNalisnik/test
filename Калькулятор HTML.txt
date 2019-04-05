@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<title>ТЕСТОВАЯ СТРАНИЦА!!!</title>
+
+	<script type="text/javascript" src="C:\JS\MyKod.js">
+
+	</script>
+
+	<style type="text/css">
+		#mycalc table{
+			border-style: solid;
+			border-width: 3px;
+			border-color: #a0a0a0;
+			background-color: #f0f0f0;
+		}
+		#mycalc input[type="button"]{
+			font-size: 15px;
+			font-weight: bold;
+			height: 30px;
+			width: 50px;
+		}
+		#mycalc input[type="text"]{
+			height: 25px;
+			width: 145px;
+			background-color: white;
+			color: black;
+			font-size: 16px;
+			text-align: right;
+			padding: 2px 5px;
+		}
+	</style>
+
+</head>
+<body>
+
+	<form id="mycalc">
+		<!-- таблица в форме -->
+		<table>
+			<!-- Первая строка таблицы -->
+			<tr>
+				<!-- Первый столбец в первой строке -->
+				<td>
+					<input type="text" id="myoutput">
+					<!-- кнопка сброса -->
+					<input type="button" value="C" id="btnC">
+				</td>
+			</tr>
+			<!-- Вторая строка таблицы -->
+			<tr>
+				<!-- Первый столбец во сторой строке -->
+				<td style="border-top: solid 1px #a0a0a0;">
+					<!-- Кнопка с цифрой 1 -->
+					<input type="button" value="1" id="btn1">
+					<!-- Кнопка с цифрой 2 -->
+					<input type="button" value="2" id="btn2">
+					<!-- Кнопка с цифрой 3 -->
+					<input type="button" value="3" id="btn3">
+					<!-- Кнопка оператором сложения -->
+					<input type="button" value="+" id="btn+">
+					<br>
+					<!-- Кнопка с цифрой 4 -->
+					<input type="button" value="4" id="btn4">
+					<!-- Кнопка с цифрой 5 -->
+					<input type="button" value="5" id="btn5">
+					<!-- Кнопка с цифрой 6 -->
+					<input type="button" value="6" id="btn6">
+					<!-- Кнопка оператором вычитания -->
+					<input type="button" value="-" id="btn-">
+					<br>
+					<!-- Кнопка с цифрой 7 -->
+					<input type="button" value="7" id="btn7">
+					<!-- Кнопка с цифрой 8 -->
+					<input type="button" value="8" id="btn8">
+					<!-- Кнопка с цифрой 9 -->
+					<input type="button" value="9" id="btn9">
+					<!-- Кнопка оператором умножения -->
+					<input type="button" value="*" id="btn*">
+					<br>
+					<!-- Кнопка с цифрой 0 -->
+					<input type="button" value="0" id="btn0">
+					<!-- Кнопка с десятичной точкой -->
+					<input type="button" value="." id="btnDot">
+					<!-- Кнопка с оператором равенства -->
+					<input type="button" value="=" id="btn=">
+					<!-- Кнопка оператором деления -->
+					<input type="button" value="/" id="btn/">
+				</td>
+			</tr>
+		</table>
+	</form>
+
+</body>
+</html>
